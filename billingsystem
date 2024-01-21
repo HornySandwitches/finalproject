@@ -1,6 +1,13 @@
 #include <stdio.h>
 
-int main() {
+ int beverage_total = 0;
+ int cosmetics_total = 0;
+ int grocery_total = 0;
+void CosmeticTotal(int boso, int hc, int hs, int bosp);
+void BeverageTotal(int cn, int wa, int ju, int moj, int pak);
+void GroceryTotal(int s, int t, int c, int w, int r);
+int main() 
+{
     char name[50];
     int phone_number;
     int customer_id;
@@ -16,16 +23,13 @@ int main() {
     int rice;
     int wheat;
 
-    int pepsi;
-    int sprite;
-    int coke;
+    int cola_next;
+    int water;
+    int juice;
     int mojitos;
     int pakola;
 
     int total;
-    int cosmetics_total = 0;
-    int grocery_total = 0;
-    int beverage_total = 0;
 
 
     printf("\n---------------------");
@@ -36,7 +40,7 @@ int main() {
     printf("Customer Details\n\n");
     
         printf("------------- PROMOTIONS -------------\n");
-    printf("1. Buy 2 Pepsi, Get 1 Pepsi Free\n");
+    printf("1. Buy 2 Cola Next, Get 1 Cola Next Free\n");
     printf("2. Buy 2 Body Spray, Get 1 Body Spray Free\n");
     printf("3. Buy 2 Coffee, Get 1 Coffee Free\n");
     printf("--------------------------------------\n");
@@ -66,24 +70,26 @@ int main() {
     
     if (body_spray >= 2) {
         printf("Promotion Applied: Buy 2 Body Spray, Get 1 Body Spray Free\n");
-        body_spray -= 1;
+        body_spray += 1;
     }
 
     printf("Hair Spray (pkr 300) : ");
     scanf("%d", &hair_spray);
+    
 
     int boso = 50 * body_soap;
     int hc = 200 * hair_cream;
     int hs = 300 * hair_spray;
     int bosp = 300 * body_spray;
 
-    cosmetics_total = boso + hc + hs + bosp;
+    CosmeticTotal(body_soap, hair_cream, hair_spray, body_spray);
+    
 
-    printf("Body soap : %d pkr\n", boso);
+    /*printf("Body soap : %d pkr\n", boso);
     printf("Hair Cream : %d pkr\n", hc);
     printf("Hair Spray : %d pkr\n", hs);
     printf("Body Spray : %d pkr\n", bosp);
-    printf("Total Cosmetic Price : %d pkr\n", cosmetics_total);
+    printf("Total Cosmetic Price : %d pkr\n", cosmetic_total);*/
 
     printf("-----------------------\n");
 
@@ -102,7 +108,7 @@ int main() {
     
     if (coffee >= 2) {
         printf("Promotion Applied: Buy 2 Coffee, Get 1 Coffee Free\n");
-        coffee -= 1;
+        coffee += 1;
     }
 
     printf("Rice (pkr 100) : ");
@@ -110,39 +116,40 @@ int main() {
 
     printf("Wheat (pkr 100) : ");
     scanf("%d", &wheat);
-
+    
+    int r = 150 * rice;
     int s = 100 * sugar;
     int t = 50 * tea;
     int c = 100 * coffee;
-    int r = 100 * wheat;
+    int w = 100 * wheat;
 
-    grocery_total = s + t + c + r;
+    GroceryTotal(sugar, tea, coffee, wheat, rice);
 
-    printf("Sugar : %d pkr\n", s);
+   /* printf("Sugar : %d pkr\n", s);
     printf("Tea : %d pkr\n", t);
     printf("Coffee : %d pkr\n", c);
-    printf("Rice : %d pkr\n", r);
-    printf("Total Grocery Price : %d pkr\n", grocery_total);
+    printf("Wheat : %d pkr\n", w);
+    printf("Total Grocery Price : %d pkr\n", grocery_total);*/
 
     printf("-----------------------\n");
 
     
     printf("BEVERAGES\n");
 
-    printf("Pepsi (pkr 100) : ");
-    scanf("%d", &pepsi);
+    printf("Cola Next (pkr 100) : ");
+    scanf("%d", &cola_next);
 
     
-    if (pepsi >= 2) {
-        printf("Promotion Applied: Buy 2 Pepsi, Get 1 Pepsi Free\n");
-        pepsi -= 1;
+    if (cola_next >= 2) {
+        printf("Promotion Applied: Buy 2 Juice Next, Get 1 Juice Free\n");
+        cola_next += 1;
     }
 
-    printf("Sprite (pkr 100) : ");
-    scanf("%d", &sprite);
+    printf("Water (pkr 100) : ");
+    scanf("%d", &water);
 
-    printf("Coke (pkr 100) : ");
-    scanf("%d", &coke);
+    printf("Juice (pkr 100) : ");
+    scanf("%d", &juice);
 
     printf("Mojitos (pkr 150) : ");
     scanf("%d", &mojitos);
@@ -150,22 +157,37 @@ int main() {
     printf("Pakola (pkr 100) : ");
     scanf("%d", &pakola);
 
-    int pep = 100 * pepsi;
-    int spr = 100 * sprite;
-    int cok = 100 * coke;
+    int cn = 100 * cola_next;
+    int wa = 100 * water;
+    int ju = 100 * juice;
     int moj = 150 * mojitos;
     int pak = 100 * pakola;
 
-    beverage_total = pep + spr + cok + moj + pak;
+     BeverageTotal(cola_next, water, juice, mojitos, pakola);
 
-    printf("Pepsi : %d pkr\n", pep);
-    printf("Sprite : %d pkr\n", spr);
-    printf("Coke : %d pkr\n", cok);
+    /*printf("Pepsi : %d pkr\n", cn);
+    printf("Sprite : %d pkr\n", wa);
+    printf("Coke : %d pkr\n", ju);
     printf("Mojitos : %d pkr\n", moj);
     printf("Pakola : %d pkr\n", pak);
-    printf("Total Beverage Price : %d pkr\n", beverage_total);
+    printf("Total Beverage Price : %d pkr\n", beverage_total);*/
 
     printf("-----------------------\n");
+    printf("Product name                                Quantity                                       Price\n\n");
+	printf("Body Soap                                      %d                                             %d\n",body_soap,boso);
+	printf("Hair Cream                                     %d                                             %d\n",hair_cream,hc);
+	printf("Body Spray                                     %d                                             %d\n",body_spray,bosp);
+	printf("Hair Spray                                     %d                                             %d\n",hair_spray,hs);
+	printf("Suagr                                          %d                                             %d\n",sugar,s);
+	printf("Tea                                            %d                                             %d\n",tea,t);
+	printf("Coffee                                         %d                                             %d\n",coffee,c);
+	printf("Rice                                           %d                                             %d\n",rice,r);
+	printf("Wheat                                          %d                                             %d\n",wheat,w);
+	printf("Pakola                                         %d                                             %d\n",pakola,pak);
+	printf("Juice                                          %d                                             %d\n",juice,ju);
+	printf("Cola Next                                      %d                                             %d\n",cola_next,cn);
+	printf("Water                                          %d                                             %d\n",water,wa);
+	printf("Mojitos                                        %d                                             %d\n",mojitos,moj);
 
     
     total = cosmetics_total + grocery_total + beverage_total;
@@ -183,3 +205,36 @@ int main() {
 
     return 0;
 }
+
+void CosmeticTotal(int boso, int hc, int hs, int bosp) 
+{
+    cosmetics_total = boso + hc + hs + bosp;
+    printf("Body soap : %d \n", boso);
+    printf("Hair Cream : %d \n", hc);
+    printf("Hair Spray : %d \n", hs);
+    printf("Body Spray : %d \n", bosp);
+    printf("Total Cosmetic Quantity : %d \n", cosmetics_total);
+}
+
+void BeverageTotal(int cn, int wa, int ju, int moj, int pak) 
+{
+	
+    beverage_total = cn + wa + ju + moj + pak;
+    printf("Cola Next : %d \n", cn);
+    printf("Water : %d \n", wa);
+    printf("Juice : %d \n", ju);
+    printf("Mojitos : %d \n", moj);
+    printf("Pakola : %d \n", pak);
+    printf("Total Beverage Quantity : %d \n", beverage_total);
+}
+
+void GroceryTotal(int s, int t, int c, int w, int r) 
+{
+    grocery_total = s + t + c + w + r;
+    printf("Sugar : %d \n", s);
+    printf("Tea : %d \n", t);
+    printf("Coffee : %d \n", c);
+    printf("Wheat : %d \n", w);
+    printf("Total Grocery Quantity: %d \n", grocery_total);
+}
+
