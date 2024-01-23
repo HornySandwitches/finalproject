@@ -2,6 +2,7 @@
 
 int main() 
 {
+	int Premium;
     char name[50];
     int phone_number;
     int customer_id;
@@ -28,14 +29,22 @@ int main()
     int grocery_total = 0;
     int beverage_total = 0;
 
-
+    
     printf("\n---------------------");
     printf("\n*Welcome to TSAY MART*");
     printf("\n---------------------");
     printf("\nBILLING SYSTEM");
     printf("\n----------------------\n");
     printf("Customer Details\n\n");
-    
+    printf("--------------------------------------\n");
+    printf("List of Items:-\n");
+    printf("   Cosmetics                            Grocery                                   Beverage\n");
+    printf("  Body Soap(Rs.50)                   Sugar(Rs.100)                            Cola Next(Rs.100)\n");
+    printf("  Body Spray(Rs.300)                 Rice(Rs.100)                              Water(Rs.100)\n");
+    printf("  Hair Cream(Rs.200)                 Wheat(Rs.150)                              Juice(Rs.100)\n");
+    printf("  Hair Spray (Rs.300)                  Tea(Rs.50)                              Mojitos(Rs.150)\n");
+    printf("     -                              Coffee(Rs,100)                              Pakola(Rs.100)\n");
+   
         printf("------------- PROMOTIONS -------------\n");
     printf("1. Buy 2 Cola Next, Get 1 Cola Next Free\n");
     printf("2. Buy 2 Body Spray, Get 1 Body Spray Free\n");
@@ -50,9 +59,15 @@ int main()
 
     printf("Customer ID: ");
     scanf("%d", &customer_id);
+    
+   // printf("Are You a Premium Member:-\n 1-NO\t 2-Yes");
+    //scanf("%d",&Premium);
 
     printf("-----------------------\n");
-
+    
+    
+	
+  
     printf("COSMETICS\n\n");
 
     printf("Body Soap (pkr 50) : ");
@@ -185,9 +200,11 @@ int main()
 	printf("Mojitos                                        %d                                             %d\n",mojitos,moj);
 
     printf("-----------------------\n");
+     total = cosmetics_total + grocery_total + beverage_total;
     
-    total = cosmetics_total + grocery_total + beverage_total;
-
+     
+   
+	
     printf("TSAY MART Checkout\n\n");
     printf("Customer Name : %s\n", name);
     printf("Customer Phone Number : %d\n", phone_number);
@@ -197,7 +214,19 @@ int main()
     printf("Cosmetics Total Price : %d pkr\n", cosmetics_total);
     printf("Beverage Total Price : %d pkr\n", beverage_total);
     printf("Total Price : %d pkr\n", total);
-    printf("--------------------------------------------------\n");
+     printf("Are You A Premium Member: \t 1-Yes\t 2-No\n");
+     scanf("%d",&Premium);
+     switch(Premium)
+     {
+     	case 1:
+     		printf("New bill:%d \n", total/2);
+     		break;
+	 case 2: 
+	   printf("Total Price : %d pkr\n", total);
+	 }
+    printf("---------------------------\n");
+    
+     return 0;
+    }
 
-    return 0;
-}
+    
